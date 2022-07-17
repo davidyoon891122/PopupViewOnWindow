@@ -14,6 +14,7 @@
 		ADBB313A2884BE8A00C651DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBB31382884BE8A00C651DB /* LaunchScreen.storyboard */; };
 		ADBB31452884BE8A00C651DB /* PopupViewWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31442884BE8A00C651DB /* PopupViewWindowTests.swift */; };
 		ADBB31622884C24300C651DB /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = ADBB31612884C24300C651DB /* SnapKit-Dynamic */; };
+		ADBB31642884C34300C651DB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31632884C34300C651DB /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		ADBB31402884BE8A00C651DB /* PopupViewWindowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupViewWindowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBB31442884BE8A00C651DB /* PopupViewWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewWindowTests.swift; sourceTree = "<group>"; };
 		ADBB314A2884BE8A00C651DB /* PopupViewWindowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupViewWindowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADBB31632884C34300C651DB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +96,8 @@
 		ADBB312C2884BE8900C651DB /* PopupViewWindow */ = {
 			isa = PBXGroup;
 			children = (
-				ADBB312D2884BE8900C651DB /* AppDelegate.swift */,
-				ADBB312F2884BE8900C651DB /* SceneDelegate.swift */,
-				ADBB31312884BE8900C651DB /* ViewController.swift */,
+				ADBB31652884C34900C651DB /* Delegate */,
+				ADBB31662884C35900C651DB /* Scene */,
 				ADBB31362884BE8A00C651DB /* Assets.xcassets */,
 				ADBB31382884BE8A00C651DB /* LaunchScreen.storyboard */,
 				ADBB313B2884BE8A00C651DB /* Info.plist */,
@@ -110,6 +111,24 @@
 				ADBB31442884BE8A00C651DB /* PopupViewWindowTests.swift */,
 			);
 			path = PopupViewWindowTests;
+			sourceTree = "<group>";
+		};
+		ADBB31652884C34900C651DB /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB312D2884BE8900C651DB /* AppDelegate.swift */,
+				ADBB312F2884BE8900C651DB /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		ADBB31662884C35900C651DB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB31312884BE8900C651DB /* ViewController.swift */,
+				ADBB31632884C34300C651DB /* BoardView.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADBB31322884BE8900C651DB /* ViewController.swift in Sources */,
+				ADBB31642884C34300C651DB /* BoardView.swift in Sources */,
 				ADBB312E2884BE8900C651DB /* AppDelegate.swift in Sources */,
 				ADBB31302884BE8900C651DB /* SceneDelegate.swift in Sources */,
 			);

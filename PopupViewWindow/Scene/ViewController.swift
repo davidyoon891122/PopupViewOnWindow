@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         return button
     }()
 
+    private let boardView = BoardView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -26,15 +28,24 @@ class ViewController: UIViewController {
 private extension ViewController {
     func setupViews() {
         [
-            testButton
+            testButton,
+            boardView
         ]
             .forEach {
                 view.addSubview($0)
             }
 
+        let inset: CGFloat = 16.0
         testButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(inset)
+            $0.leading.equalToSuperview().offset(inset)
         }
+
+        boardView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            
+        }
+
     }
 }
 
