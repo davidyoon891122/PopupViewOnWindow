@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         )
         return view
     }()
-
+    private let generalPopup = GeneralPopup()
     private let boardView = BoardView()
 
     override func viewDidLoad() {
@@ -64,40 +64,8 @@ private extension ViewController {
         }
     }
 
-    func setupPopupView() {
-        let scenes = UIApplication.shared.connectedScenes
-        guard let windowScenes = scenes.first as? UIWindowScene else { return }
-        guard let window = windowScenes.windows.first else { return }
-        blackView.frame = window.frame
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(blackViewTapAction))
-        blackView.addGestureRecognizer(tapGesture)
-
-        blackView.alpha = 1
-
-        [
-            blackView,
-            boardView
-        ]
-            .forEach {
-                window.addSubview($0)
-            }
-
-        blackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-
-        boardView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-    }
-
     @objc func buttonAction() {
-        setupPopupView()
-    }
-
-    @objc func blackViewTapAction() {
-        boardView.removeFromSuperview()
-        blackView.alpha = 0
+        generalPopup.openPopupView(view: boardView)
     }
 }
 

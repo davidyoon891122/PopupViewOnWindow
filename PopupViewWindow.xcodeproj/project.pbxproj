@@ -15,6 +15,7 @@
 		ADBB31452884BE8A00C651DB /* PopupViewWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31442884BE8A00C651DB /* PopupViewWindowTests.swift */; };
 		ADBB31622884C24300C651DB /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = ADBB31612884C24300C651DB /* SnapKit-Dynamic */; };
 		ADBB31642884C34300C651DB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31632884C34300C651DB /* BoardView.swift */; };
+		ADBB31682884CD0600C651DB /* GeneralPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31672884CD0600C651DB /* GeneralPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		ADBB31442884BE8A00C651DB /* PopupViewWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewWindowTests.swift; sourceTree = "<group>"; };
 		ADBB314A2884BE8A00C651DB /* PopupViewWindowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupViewWindowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBB31632884C34300C651DB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		ADBB31672884CD0600C651DB /* GeneralPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				ADBB31312884BE8900C651DB /* ViewController.swift */,
 				ADBB31632884C34300C651DB /* BoardView.swift */,
+				ADBB31672884CD0600C651DB /* GeneralPopup.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				ADBB31642884C34300C651DB /* BoardView.swift in Sources */,
 				ADBB312E2884BE8900C651DB /* AppDelegate.swift in Sources */,
 				ADBB31302884BE8900C651DB /* SceneDelegate.swift in Sources */,
+				ADBB31682884CD0600C651DB /* GeneralPopup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
