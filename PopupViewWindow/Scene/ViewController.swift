@@ -19,6 +19,12 @@ class ViewController: UIViewController {
         button.layer.borderColor = UIColor.secondarySystemBackground.cgColor
         button.layer.borderWidth = 0.5
 
+        button.addTarget(
+            self,
+            action: #selector(buttonAction),
+            for: .touchUpInside
+        )
+
         return button
     }()
 
@@ -43,8 +49,7 @@ private extension ViewController {
     func setupViews() {
         view.backgroundColor = .systemBackground
         [
-            testButton,
-            boardView
+            testButton
         ]
             .forEach {
                 view.addSubview($0)
@@ -57,18 +62,18 @@ private extension ViewController {
             $0.width.equalTo(80.0)
             $0.height.equalTo(50.0)
         }
-
-        boardView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            
-        }
     }
 
-    func setupPopupView(view: UIView) {
+    func setupPopupView() {
         let scenes = UIApplication.shared.connectedScenes
         guard let windowScenes = scenes.first as? UIWindowScene else { return }
         guard let window = windowScenes.windows.first else { return }
         blackView.frame = window.frame
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(blackViewTapAction))
+        blackView.addGestureRecognizer(tapGesture)
+
+        blackView.alpha = 1
+
         [
             blackView,
             boardView
@@ -84,7 +89,15 @@ private extension ViewController {
         boardView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-        
+    }
+
+    @objc func buttonAction() {
+        setupPopupView()
+    }
+
+    @objc func blackViewTapAction() {
+        boardView.removeFromSuperview()
+        blackView.alpha = 0
     }
 }
 
