@@ -10,6 +10,7 @@ import SnapKit
 import SwiftUI
 
 class ViewController: UIViewController {
+    // MARK: - UI
     private lazy var testButton: UIButton = {
         let button = UIButton()
         button.setTitle("Board", for: .normal)
@@ -51,6 +52,10 @@ class ViewController: UIViewController {
     private let generalPopup = GeneralPopup()
     private let boardView = BoardView()
 
+    // MARK: - Variables
+
+    private var companies = ["Microsoft", "Apple", "Google", "Facebook", "Amazon"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -62,7 +67,7 @@ extension ViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return 5
+        return companies.count
     }
 
     func tableView(
@@ -73,8 +78,8 @@ extension ViewController: UITableViewDataSource {
             withIdentifier: "cell",
             for: indexPath
         )
-
-        cell.textLabel?.text = "Selection"
+        let company = companies[indexPath.row]
+        cell.textLabel?.text = company
         return cell
     }
 }
@@ -85,6 +90,34 @@ extension ViewController: UITableViewDelegate {
         didSelectRowAt indexPath: IndexPath
     ) {
         print(indexPath.row)
+
+        let alert = UIAlertController(
+            title: "Alert",
+            message: "Check the popupView",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(
+            title: "Confirm",
+            style: .default,
+            handler: { [weak self] _ in
+                guard let self = self else { return }
+                print("Confirm")
+                self.generalPopup.openPopupView(view: self.boardView)
+            }
+        ))
+
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
+
+        present(
+            alert,
+            animated: true,
+            completion: nil
+        )
     }
 }
 
