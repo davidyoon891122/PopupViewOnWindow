@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SwiftUI
 
 class ViewController: UIViewController {
     private lazy var testButton: UIButton = {
@@ -68,4 +69,3 @@ private extension ViewController {
         generalPopup.openPopupView(view: boardView)
     }
 }
-

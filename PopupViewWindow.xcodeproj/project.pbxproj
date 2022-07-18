@@ -16,6 +16,8 @@
 		ADBB31622884C24300C651DB /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = ADBB31612884C24300C651DB /* SnapKit-Dynamic */; };
 		ADBB31642884C34300C651DB /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31632884C34300C651DB /* BoardView.swift */; };
 		ADBB31682884CD0600C651DB /* GeneralPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB31672884CD0600C651DB /* GeneralPopup.swift */; };
+		ADBB316C28852A5C00C651DB /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB316B28852A5C00C651DB /* Extension+UIViewController.swift */; };
+		ADBB316E28852D3D00C651DB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB316D28852D3D00C651DB /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		ADBB314A2884BE8A00C651DB /* PopupViewWindowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupViewWindowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBB31632884C34300C651DB /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		ADBB31672884CD0600C651DB /* GeneralPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPopup.swift; sourceTree = "<group>"; };
+		ADBB316B28852A5C00C651DB /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		ADBB316D28852D3D00C651DB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				ADBB31312884BE8900C651DB /* ViewController.swift */,
 				ADBB31632884C34300C651DB /* BoardView.swift */,
 				ADBB31672884CD0600C651DB /* GeneralPopup.swift */,
+				ADBB316B28852A5C00C651DB /* Extension+UIViewController.swift */,
+				ADBB316D28852D3D00C651DB /* TestViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -270,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADBB316E28852D3D00C651DB /* TestViewController.swift in Sources */,
 				ADBB31322884BE8900C651DB /* ViewController.swift in Sources */,
 				ADBB31642884C34300C651DB /* BoardView.swift in Sources */,
+				ADBB316C28852A5C00C651DB /* Extension+UIViewController.swift in Sources */,
 				ADBB312E2884BE8900C651DB /* AppDelegate.swift in Sources */,
 				ADBB31302884BE8900C651DB /* SceneDelegate.swift in Sources */,
 				ADBB31682884CD0600C651DB /* GeneralPopup.swift in Sources */,
