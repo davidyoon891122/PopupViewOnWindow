@@ -11,25 +11,6 @@ import SwiftUI
 
 class ViewController: UIViewController {
     // MARK: - UI
-    private lazy var testButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Board", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.backgroundColor = .systemBackground
-
-        button.layer.cornerRadius = 15.0
-        button.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        button.layer.borderWidth = 0.5
-
-        button.addTarget(
-            self,
-            action: #selector(buttonAction),
-            for: .touchUpInside
-        )
-
-        return button
-    }()
-
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -59,6 +40,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        configureNavigation()
     }
 }
 
@@ -125,30 +107,22 @@ private extension ViewController {
     func setupViews() {
         view.backgroundColor = .systemBackground
         [
-            testButton,
             tableView
         ]
             .forEach {
                 view.addSubview($0)
             }
 
-        let inset: CGFloat = 16.0
-        testButton.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(inset)
-            $0.leading.equalToSuperview().offset(inset)
-            $0.width.equalTo(80.0)
-            $0.height.equalTo(50.0)
-        }
-
         tableView.snp.makeConstraints {
-            $0.top.equalTo(testButton.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
     }
 
-    @objc func buttonAction() {
-        generalPopup.openPopupView(view: boardView)
+    func configureNavigation() {
+        navigationItem.title = "WishList"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
