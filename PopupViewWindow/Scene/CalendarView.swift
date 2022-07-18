@@ -26,6 +26,34 @@ final class CalendarView: UIView {
         return calendar
     }()
 
+    private lazy var confirmButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Confirm", for: .normal)
+        button.setTitleColor(.green, for: .normal)
+        return button
+    }()
+
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        return button
+    }()
+
+    private lazy var buttonHStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.distribution = .fillEqually
+        [
+            cancelButton,
+            confirmButton
+        ]
+            .forEach {
+                stackView.addArrangedSubview($0)
+            }
+
+        return stackView
+    }()
+
     init() {
         super.init(frame: .zero)
         setupViews()
@@ -45,26 +73,33 @@ private extension CalendarView {
         backgroundColor = .secondarySystemBackground
         [
             titleLabel,
-            calendarView
+            calendarView,
+            buttonHStackView
         ]
             .forEach {
                 addSubview($0)
             }
 
-        let inset: CGFloat = 16.0
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(inset)
-            $0.leading.equalToSuperview().offset(inset)
-            $0.trailing.equalToSuperview().offset(-inset)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
         }
 
         calendarView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(8.0)
-            $0.leading.equalToSuperview().offset(inset)
-            $0.trailing.equalToSuperview().offset(-inset)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
             $0.height.equalTo(300.0)
             $0.width.equalTo(300.0)
-            $0.bottom.equalToSuperview().offset(-inset)
+        }
+
+        buttonHStackView.snp.makeConstraints {
+            $0.top.equalTo(calendarView.snp.bottom)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(50.0)
+            $0.bottom.equalToSuperview()
         }
     }
 }
