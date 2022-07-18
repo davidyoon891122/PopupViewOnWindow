@@ -29,6 +29,17 @@ class ViewController: UIViewController {
         return button
     }()
 
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            UITableViewCell.self,
+            forCellReuseIdentifier: "cell"
+        )
+        return tableView
+    }()
+
     private lazy var blackView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.init(
@@ -46,11 +57,43 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return 5
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "cell",
+            for: indexPath
+        )
+
+        cell.textLabel?.text = "Selection"
+        return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        print(indexPath.row)
+    }
+}
+
 private extension ViewController {
     func setupViews() {
         view.backgroundColor = .systemBackground
         [
-            testButton
+            testButton,
+            tableView
         ]
             .forEach {
                 view.addSubview($0)
@@ -62,6 +105,13 @@ private extension ViewController {
             $0.leading.equalToSuperview().offset(inset)
             $0.width.equalTo(80.0)
             $0.height.equalTo(50.0)
+        }
+
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(testButton.snp.bottom)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 
