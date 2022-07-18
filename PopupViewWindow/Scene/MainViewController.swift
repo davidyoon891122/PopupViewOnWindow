@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     // MARK: - UI
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     }()
     private let generalPopup = GeneralPopup()
     private let boardView = BoardView()
+    private let calendarVeiw = CalendarView()
 
     // MARK: - Variables
 
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -66,7 +67,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
@@ -85,7 +86,7 @@ extension ViewController: UITableViewDelegate {
             handler: { [weak self] _ in
                 guard let self = self else { return }
                 print("Confirm")
-                self.generalPopup.openPopupView(view: self.boardView)
+                self.generalPopup.openPopupView(view: self.calendarVeiw)
             }
         ))
 
@@ -103,7 +104,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-private extension ViewController {
+private extension MainViewController {
     func setupViews() {
         view.backgroundColor = .systemBackground
         [
